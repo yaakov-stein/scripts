@@ -79,9 +79,10 @@ Passcode: 455165"""
 async def on_ready():
     print(f"Logged in as {bot.user}")
     scheduler.start()
+    await send_reminder()
 
     # Schedule a job every Tuesday at 10:00 AM NY time
-    scheduler.add_job(send_reminder, CronTrigger(day_of_week="tue", hour=10, minute=0))
+    # scheduler.add_job(send_reminder, CronTrigger(day_of_week="tue", hour=10, minute=0))
 
 async def send_reminder():
     channel = bot.get_channel(CHANNEL_ID)
