@@ -84,6 +84,7 @@ async def on_ready():
     scheduler.add_job(
         send_reminder,
         CronTrigger(day_of_week="tue", hour=14, minute=0),
+        # Setting to None means the job can run however late, even if server is down
         misfire_grace_time=None,
     )
 
