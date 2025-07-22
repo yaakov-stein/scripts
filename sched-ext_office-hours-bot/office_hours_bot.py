@@ -81,7 +81,11 @@ async def on_ready():
     scheduler.start()
 
     # Schedule a job every Tuesday at 10:00 AM NY time
-    scheduler.add_job(send_reminder, CronTrigger(day_of_week="tue", hour=14, minute=0))
+    scheduler.add_job(
+        send_reminder,
+        CronTrigger(day_of_week="tue", hour=14, minute=0),
+        misfire_grace_time=None,
+    )
 
 async def send_reminder():
     channel = bot.get_channel(CHANNEL_ID)
