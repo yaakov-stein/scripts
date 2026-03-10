@@ -83,7 +83,7 @@ async def on_ready():
     # Schedule a job every Tuesday at 10:00 AM NY time
     scheduler.add_job(
         send_reminder,
-        CronTrigger(day_of_week="tue", hour=15, minute=0),
+        CronTrigger(day_of_week="tue", hour=14, minute=0),
         # Setting to None means the job can run however late, even if server is down
         misfire_grace_time=None,
     )
